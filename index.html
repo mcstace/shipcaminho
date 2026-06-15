@@ -4,344 +4,219 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ShipCaminho — Fulfillment nos EUA</title>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-:root {
-  --orange: #f15c22;
-  --orange-soft: #fff4ef;
-  --orange-mid: #fde0d0;
-  --black: #0f0f0f;
-  --dark: #1a1a1a;
-  --gray-dark: #3d3d3d;
-  --gray-mid: #767676;
-  --gray-light: #e4e4e4;
-  --gray-xlight: #f5f5f5;
-  --white: #ffffff;
-  --max: 1120px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --or:#f15c22;--or-soft:#fff4ef;--or-dim:rgba(241,92,34,0.12);
+  --bk:#0c0c0c;--bk2:#161616;--bk3:#1f1f1f;
+  --gy:#888;--gy2:#555;--gy3:#e4e4e4;--gy4:#f4f4f4;
+  --wh:#ffffff;--max:1140px;
 }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--white);
-  color: var(--black);
-  -webkit-font-smoothing: antialiased;
-}
-
-.container { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+body{font-family:'Inter',sans-serif;background:var(--wh);color:var(--bk);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
 /* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--gray-light);
-}
-.nav-inner {
-  max-width: var(--max); margin: 0 auto; padding: 0 48px;
-  height: 68px; display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 900; font-size: 1.3rem; letter-spacing: -0.03em;
-  color: var(--black); text-decoration: none;
-}
-.nav-logo span { color: var(--orange); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  font-size: 0.875rem; font-weight: 400; color: var(--gray-dark);
-  text-decoration: none; transition: color 0.15s;
-}
-.nav-links a:hover { color: var(--black); }
-.nav-right { display: flex; align-items: center; gap: 20px; }
-.lang-switcher { display: flex; border: 1px solid var(--gray-light); border-radius: 4px; overflow: hidden; }
-.lang-btn {
-  background: none; border: none; cursor: pointer;
-  font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600;
-  color: var(--gray-mid); padding: 6px 12px;
-  letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.15s;
-  border-right: 1px solid var(--gray-light);
-}
-.lang-btn:last-child { border-right: none; }
-.lang-btn:hover { color: var(--black); background: var(--gray-xlight); }
-.lang-btn.active { background: var(--orange); color: var(--white); }
-.nav-cta {
-  background: var(--orange); color: var(--white);
-  padding: 10px 24px; border-radius: 3px;
-  font-size: 0.875rem; font-weight: 500; text-decoration: none;
-  transition: opacity 0.15s;
-}
-.nav-cta:hover { opacity: 0.85; }
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gy3);}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 48px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:-0.03em;color:var(--bk);text-decoration:none;}
+.logo span{color:var(--or);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:0.875rem;color:var(--gy2);text-decoration:none;transition:color .15s;}
+.nav-links a:hover{color:var(--bk);}
+.nav-r{display:flex;align-items:center;gap:16px;}
+.lang-sw{display:flex;border:1px solid var(--gy3);border-radius:4px;overflow:hidden;}
+.lb{background:none;border:none;border-right:1px solid var(--gy3);cursor:pointer;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:var(--gy);padding:6px 11px;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;}
+.lb:last-child{border-right:none;}
+.lb:hover{color:var(--bk);background:var(--gy4);}
+.lb.active{background:var(--or);color:var(--wh);}
+.nav-cta{background:var(--or);color:var(--wh);padding:10px 22px;border-radius:4px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:opacity .15s;}
+.nav-cta:hover{opacity:.85;}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--bk);padding:10px 0;overflow:hidden;}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 30s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{display:inline-flex;align-items:center;gap:12px;padding:0 32px;font-size:0.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--or);flex-shrink:0;}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* ── HERO ── */
-.hero {
-  padding: 148px 48px 0;
-  max-width: var(--max); margin: 0 auto;
-}
-.hero-top {
-  display: grid; grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px; align-items: start; padding-bottom: 72px;
-  border-bottom: 1px solid var(--gray-light);
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
-}
-.hero-tag-line { width: 24px; height: 2px; background: var(--orange); }
-h1 {
-  font-family: 'Epilogue', sans-serif;
-  font-size: clamp(2.6rem, 4.8vw, 4rem);
-  font-weight: 900; line-height: 1.0; letter-spacing: -0.04em;
-  color: var(--black); margin-bottom: 28px;
-}
-h1 em { font-style: normal; color: var(--orange); }
-.hero-body {
-  font-size: 1.05rem; line-height: 1.8; color: var(--gray-dark);
-  font-weight: 300; margin-bottom: 36px;
-}
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--orange); color: var(--white);
-  padding: 13px 28px; border-radius: 3px;
-  font-size: 0.9rem; font-weight: 500; text-decoration: none;
-  transition: opacity 0.15s; display: inline-block;
-}
-.btn-primary:hover { opacity: 0.85; }
-.btn-outline {
-  border: 1.5px solid var(--gray-light); color: var(--gray-dark);
-  padding: 13px 28px; border-radius: 3px;
-  font-size: 0.9rem; font-weight: 400; text-decoration: none;
-  transition: all 0.15s; display: inline-block;
-}
-.btn-outline:hover { border-color: var(--black); color: var(--black); }
-.hero-right { padding-top: 8px; }
-.hero-stat-block {
-  border: 1px solid var(--gray-light); padding: 28px;
-  margin-bottom: 2px; display: flex; gap: 20px; align-items: flex-start;
-  transition: border-color 0.2s, background 0.2s;
-}
-.hero-stat-block:hover { border-color: var(--orange); background: var(--orange-soft); }
-.hero-stat-icon {
-  width: 40px; height: 40px; flex-shrink: 0;
-  background: var(--orange-soft); border-radius: 3px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-}
-.hero-stat-title {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;
-}
-.hero-stat-text { font-size: 0.85rem; color: var(--gray-mid); line-height: 1.55; }
+.hero{padding:100px 48px 0;max-width:var(--max);margin:0 auto;}
+.hero-top{display:grid;grid-template-columns:1.15fr 0.85fr;gap:72px;align-items:start;padding-bottom:80px;border-bottom:1px solid var(--gy3);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:0.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:22px;}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--or);}
+h1{font-family:'Epilogue',sans-serif;font-size:clamp(2.8rem,5.2vw,4.4rem);font-weight:900;line-height:1.0;letter-spacing:-.04em;color:var(--bk);margin-bottom:24px;}
+h1 em{font-style:italic;color:var(--or);}
+.hero-body{font-size:1.05rem;line-height:1.82;color:var(--gy2);font-weight:300;margin-bottom:38px;max-width:500px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{background:var(--or);color:var(--wh);padding:13px 28px;border-radius:4px;font-size:.9rem;font-weight:500;text-decoration:none;transition:opacity .15s;display:inline-block;}
+.btn-p:hover{opacity:.85;}
+.btn-o{border:1.5px solid var(--gy3);color:var(--gy2);padding:13px 28px;border-radius:4px;font-size:.9rem;text-decoration:none;transition:all .15s;display:inline-block;}
+.btn-o:hover{border-color:var(--bk);color:var(--bk);}
+.hero-cards{display:flex;flex-direction:column;gap:2px;padding-top:6px;}
+.hcard{border:1px solid var(--gy3);padding:26px 28px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s,background .2s;cursor:default;}
+.hcard:hover{border-color:var(--or);background:var(--or-soft);}
+.hcard-icon{width:40px;height:40px;border-radius:4px;background:var(--or-soft);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.hcard-t{font-family:'Epilogue',sans-serif;font-size:.95rem;font-weight:800;margin-bottom:3px;letter-spacing:-.01em;}
+.hcard-b{font-size:.82rem;color:var(--gy);line-height:1.55;}
 
-/* Numbers bar */
-.numbers-bar {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-left: 1px solid var(--gray-light);
-}
-.number-item {
-  padding: 32px 40px;
-  border-right: 1px solid var(--gray-light);
-  border-bottom: 1px solid var(--gray-light);
-}
-.number-val {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 2.6rem; font-weight: 900; color: var(--orange);
-  letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px;
-}
-.number-label { font-size: 0.85rem; color: var(--gray-mid); font-weight: 400; line-height: 1.4; }
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--gy3);}
+.stat{padding:36px 44px;border-right:1px solid var(--gy3);border-bottom:1px solid var(--gy3);}
+.stat-n{font-family:'Epilogue',sans-serif;font-size:2.8rem;font-weight:900;color:var(--or);letter-spacing:-.04em;line-height:1;margin-bottom:6px;}
+.stat-l{font-size:.82rem;color:var(--gy);line-height:1.5;}
 
-/* ── SECTION SHARED ── */
-.section { padding: 96px 48px; max-width: var(--max); margin: 0 auto; }
-.section-tag {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
-}
-h2 {
-  font-family: 'Epilogue', sans-serif;
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
-  font-weight: 900; letter-spacing: -0.035em; line-height: 1.05;
-  color: var(--black); margin-bottom: 16px;
-}
-.section-intro {
-  font-size: 1rem; color: var(--gray-dark); font-weight: 300;
-  line-height: 1.75; max-width: 600px; margin-bottom: 56px;
-}
-hr.section-rule { border: none; border-top: 1px solid var(--gray-light); }
+/* ── SECTION BASE ── */
+.sec{padding:100px 48px;max-width:var(--max);margin:0 auto;}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:12px;}
+h2{font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.2vw,2.8rem);font-weight:900;letter-spacing:-.035em;line-height:1.05;color:var(--bk);margin-bottom:16px;}
+.intro{font-size:1rem;color:var(--gy2);font-weight:300;line-height:1.75;max-width:580px;margin-bottom:56px;}
+hr.rule{border:none;border-top:1px solid var(--gy3);}
 
 /* ── HOW IT WORKS ── */
-.how-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2px; margin-bottom: 2px;
-}
-.how-card {
-  background: var(--gray-xlight); padding: 44px 40px;
-  position: relative; transition: background 0.2s;
-}
-.how-card:hover { background: var(--orange-soft); }
-.how-card-num {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-  color: var(--orange); text-transform: uppercase; margin-bottom: 20px;
-}
-.how-card h3 {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
-  color: var(--black); margin-bottom: 14px;
-}
-.how-card p { font-size: 0.92rem; color: var(--gray-dark); line-height: 1.7; font-weight: 300; }
-.how-card ul {
-  list-style: none; margin-top: 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.how-card ul li {
-  font-size: 0.875rem; color: var(--gray-dark); line-height: 1.5;
-  display: flex; gap: 10px; align-items: flex-start;
-}
-.how-card ul li::before {
-  content: '→'; color: var(--orange); font-weight: 600;
-  flex-shrink: 0; margin-top: 1px;
-}
-.how-card-full {
-  background: var(--gray-xlight); padding: 44px 40px;
-  transition: background 0.2s;
-}
-.how-card-full:hover { background: var(--orange-soft); }
-.how-card-full h3 {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
-  margin-bottom: 14px;
-}
-.how-card-full-inner {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-}
-.how-card-full p { font-size: 0.92rem; color: var(--gray-dark); line-height: 1.7; font-weight: 300; }
-.how-card-full ul {
-  list-style: none; margin-top: 12px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.how-card-full ul li {
-  font-size: 0.875rem; color: var(--gray-dark); line-height: 1.5;
-  display: flex; gap: 10px; align-items: flex-start;
-}
-.how-card-full ul li::before {
-  content: '→'; color: var(--orange); font-weight: 600; flex-shrink: 0; margin-top: 1px;
-}
-.how-note {
-  margin-top: 24px; padding: 20px 24px;
-  border-left: 3px solid var(--orange);
-  background: var(--white);
-  font-size: 0.875rem; color: var(--gray-dark); line-height: 1.65;
-}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
+.how-card{background:var(--gy4);padding:44px 40px;transition:background .2s;cursor:default;}
+.how-card:hover{background:var(--or-soft);}
+.how-num{font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--or);text-transform:uppercase;margin-bottom:20px;}
+.how-card h3{font-family:'Epilogue',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;}
+.how-card p{font-size:.9rem;color:var(--gy2);line-height:1.72;font-weight:300;}
+.how-card ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px;}
+.how-card ul li{font-size:.875rem;color:var(--gy2);display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+.how-card ul li::before{content:'→';color:var(--or);font-weight:700;flex-shrink:0;}
+.how-note{margin-top:20px;padding:18px 22px;border-left:3px solid var(--or);background:var(--wh);font-size:.85rem;color:var(--gy2);line-height:1.65;}
+.how-full{background:var(--gy4);padding:44px 40px;transition:background .2s;}
+.how-full:hover{background:var(--or-soft);}
+.how-full h3{font-family:'Epilogue',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px;}
+.how-full-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.how-full p{font-size:.9rem;color:var(--gy2);line-height:1.72;font-weight:300;}
+.how-full ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:0;}
+.how-full ul li{font-size:.875rem;color:var(--gy2);display:flex;gap:10px;align-items:flex-start;}
+.how-full ul li::before{content:'→';color:var(--or);font-weight:700;flex-shrink:0;}
+
+/* ── PRICING ── */
+.pricing-wrap{background:var(--bk);}
+.pricing-in{max-width:var(--max);margin:0 auto;padding:100px 48px;}
+.pricing-in .eyebrow{color:var(--or);}
+.pricing-in h2{color:var(--wh);}
+.pricing-in .intro{color:rgba(255,255,255,.5);}
+
+/* Calculator */
+.calc-card{background:var(--bk2);border:1px solid rgba(255,255,255,.08);padding:36px 40px;margin-bottom:40px;}
+.calc-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px;}
+.calc-input-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.calc-input{background:var(--bk3);border:1px solid rgba(255,255,255,.12);color:var(--wh);font-family:'Epilogue',sans-serif;font-size:2rem;font-weight:800;padding:12px 20px;border-radius:4px;width:180px;outline:none;transition:border-color .15s;}
+.calc-input:focus{border-color:var(--or);}
+.calc-unit{font-size:.9rem;color:rgba(255,255,255,.35);font-weight:400;}
+.calc-bands-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.calc-bands{display:flex;flex-wrap:wrap;gap:8px;}
+.band-btn{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);padding:7px 16px;border-radius:100px;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;}
+.band-btn:hover{border-color:var(--or);color:var(--or);}
+.band-btn.active{background:var(--or);border-color:var(--or);color:var(--wh);}
+
+/* Pricing cards */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pc{background:var(--bk2);padding:40px 36px;border-top:3px solid transparent;transition:border-color .2s;}
+.pc:hover{border-top-color:var(--or);}
+.pc.featured{background:var(--or);border-top-color:transparent;}
+.pc-tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;}
+.pc.featured .pc-tag{color:rgba(255,255,255,.75);}
+.pc-plan{font-family:'Epilogue',sans-serif;font-size:1.5rem;font-weight:900;color:var(--wh);margin-bottom:6px;letter-spacing:-.02em;}
+.pc-price{font-family:'Epilogue',sans-serif;font-size:2.8rem;font-weight:900;color:var(--or);line-height:1;letter-spacing:-.04em;margin-bottom:2px;transition:all .3s;}
+.pc.featured .pc-price{color:var(--wh);}
+.pc-per-order{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.pc.featured .pc-per-order{color:rgba(255,255,255,.7);}
+.pc-period{font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:28px;}
+.pc.featured .pc-period{color:rgba(255,255,255,.6);}
+.pc-div{height:1px;background:rgba(255,255,255,.1);margin-bottom:24px;}
+.pc.featured .pc-div{background:rgba(255,255,255,.25);}
+.pc-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.pc-feat{font-size:.875rem;color:rgba(255,255,255,.55);display:flex;gap:10px;align-items:flex-start;line-height:1.45;}
+.pc.featured .pc-feat{color:rgba(255,255,255,.85);}
+.pc-feat::before{content:'→';color:var(--or);font-weight:700;flex-shrink:0;}
+.pc.featured .pc-feat::before{color:var(--wh);}
+.pc-btn{display:block;text-align:center;padding:13px 20px;border-radius:4px;font-size:.875rem;font-weight:500;text-decoration:none;transition:all .15s;}
+.pc-btn-out{border:1px solid rgba(255,255,255,.2);color:var(--wh);}
+.pc-btn-out:hover{border-color:var(--or);color:var(--or);}
+.pc-btn-solid{background:var(--bk);color:var(--wh);}
+.pc-btn-solid:hover{background:rgba(0,0,0,.6);}
+.pricing-note{margin-top:2px;background:var(--or-dim);border-left:3px solid var(--or);padding:20px 28px;font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.7;}
+.pricing-note strong{color:var(--wh);}
 
 /* ── MARKETING ── */
-.marketing-wrap { background: var(--black); }
-.marketing-inner {
-  max-width: var(--max); margin: 0 auto; padding: 96px 48px;
-}
-.marketing-inner .section-tag { color: var(--orange); }
-.marketing-inner h2 { color: var(--white); }
-.marketing-inner .section-intro { color: rgba(255,255,255,0.55); max-width: 640px; }
-.marketing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.mkt-card {
-  background: rgba(255,255,255,0.04);
-  padding: 36px 32px;
-  border-top: 3px solid transparent;
-  transition: border-color 0.2s, background 0.2s;
-}
-.mkt-card:hover { border-top-color: var(--orange); background: rgba(241,92,34,0.07); }
-.mkt-card-icon { font-size: 1.8rem; margin-bottom: 16px; }
-.mkt-card h3 {
-  font-family: 'Epilogue', sans-serif;
-  font-size: 1rem; font-weight: 800;
-  color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em;
-}
-.mkt-card p { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
-.mkt-note {
-  margin-top: 2px;
-  background: rgba(241,92,34,0.1);
-  border-left: 3px solid var(--orange);
-  padding: 24px 32px;
-  font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7;
-}
-.mkt-note strong { color: var(--white); }
+.mkt-wrap{background:var(--gy4);}
+.mkt-in{max-width:var(--max);margin:0 auto;padding:100px 48px;}
+.mkt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
+.mcard{background:var(--wh);padding:36px 32px;border-top:3px solid transparent;transition:border-color .2s,box-shadow .2s;}
+.mcard:hover{border-top-color:var(--or);box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.mcard-icon{font-size:1.8rem;margin-bottom:16px;}
+.mcard h3{font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:800;margin-bottom:10px;letter-spacing:-.01em;}
+.mcard p{font-size:.875rem;color:var(--gy2);line-height:1.7;font-weight:300;}
+.mkt-note{background:var(--wh);border-left:3px solid var(--or);padding:22px 28px;font-size:.875rem;color:var(--gy2);line-height:1.7;}
+.mkt-note strong{color:var(--bk);}
+
+/* ── TESTIMONIALS ── */
+.testi-wrap{background:var(--bk);padding:100px 0;overflow:hidden;}
+.testi-head{max-width:var(--max);margin:0 auto;padding:0 48px;margin-bottom:56px;}
+.testi-head .eyebrow{color:var(--or);}
+.testi-head h2{color:var(--wh);}
+.testi-track-wrap{overflow:hidden;}
+.testi-track{display:flex;gap:16px;animation:tscroll 28s linear infinite;width:max-content;}
+.testi-track:hover{animation-play-state:paused;}
+.tcard{background:var(--bk2);border:1px solid rgba(255,255,255,.08);padding:32px 28px;width:340px;flex-shrink:0;}
+.tcard-quote{font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.75;font-weight:300;margin-bottom:24px;font-style:italic;}
+.tcard-author{font-size:.8rem;font-weight:600;color:var(--wh);}
+.tcard-role{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:2px;}
+.tcard-or{color:var(--or);font-size:1.4rem;margin-bottom:12px;}
+@keyframes tscroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* ── CONTACT ── */
-.contact-wrap { background: var(--gray-xlight); }
-.contact-inner {
-  max-width: var(--max); margin: 0 auto; padding: 96px 48px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start;
-}
-.contact-inner h2 { color: var(--black); }
-.contact-inner h2 span { color: var(--orange); }
-.contact-body { font-size: 1rem; color: var(--gray-dark); line-height: 1.75; font-weight: 300; margin-bottom: 32px; }
-.whatsapp-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #25D366; color: var(--white);
-  padding: 14px 28px; border-radius: 3px;
-  font-size: 0.95rem; font-weight: 500; text-decoration: none;
-  transition: opacity 0.15s; margin-bottom: 16px;
-}
-.whatsapp-btn:hover { opacity: 0.88; }
-.contact-note { font-size: 0.8rem; color: var(--gray-mid); }
-.contact-form { display: flex; flex-direction: column; gap: 10px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.form-input {
-  background: var(--white); border: 1px solid var(--gray-light);
-  color: var(--black); padding: 13px 16px;
-  font-size: 0.9rem; font-family: 'Inter', sans-serif;
-  border-radius: 3px; outline: none; transition: border-color 0.15s; width: 100%;
-}
-.form-input::placeholder { color: var(--gray-mid); }
-.form-input:focus { border-color: var(--orange); }
-textarea.form-input { min-height: 110px; resize: vertical; }
-.form-submit {
-  background: var(--orange); color: var(--white); border: none;
-  padding: 13px 28px; font-size: 0.9rem; font-weight: 500;
-  font-family: 'Inter', sans-serif; border-radius: 3px;
-  cursor: pointer; transition: opacity 0.15s; align-self: flex-start;
-}
-.form-submit:hover { opacity: 0.85; }
+.contact-wrap{background:var(--gy4);}
+.contact-in{max-width:var(--max);margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;}
+.contact-in h2{color:var(--bk);}
+.contact-in h2 span{color:var(--or);}
+.cbody{font-size:1rem;color:var(--gy2);line-height:1.75;font-weight:300;margin-bottom:32px;}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:var(--wh);padding:14px 28px;border-radius:4px;font-size:.95rem;font-weight:500;text-decoration:none;transition:opacity .15s;margin-bottom:14px;}
+.wa-btn:hover{opacity:.88;}
+.cnote{font-size:.78rem;color:var(--gy);}
+.cform{display:flex;flex-direction:column;gap:10px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.fi{background:var(--wh);border:1px solid var(--gy3);color:var(--bk);padding:13px 16px;font-size:.9rem;font-family:'Inter',sans-serif;border-radius:3px;outline:none;transition:border-color .15s;width:100%;}
+.fi::placeholder{color:var(--gy);}
+.fi:focus{border-color:var(--or);}
+textarea.fi{min-height:110px;resize:vertical;}
+.fsub{background:var(--or);color:var(--wh);border:none;padding:13px 28px;font-size:.9rem;font-weight:500;font-family:'Inter',sans-serif;border-radius:3px;cursor:pointer;transition:opacity .15s;align-self:flex-start;}
+.fsub:hover{opacity:.85;}
 
 /* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--gray-light);
-  background: var(--white);
-}
-.footer-inner {
-  max-width: var(--max); margin: 0 auto; padding: 28px 48px;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 12px;
-}
-.footer-logo {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 900; font-size: 1rem; color: var(--black);
-  text-decoration: none; letter-spacing: -0.02em;
-}
-.footer-logo span { color: var(--orange); }
-.footer-text { font-size: 0.8rem; color: var(--gray-mid); }
+footer{border-top:1px solid var(--gy3);background:var(--wh);}
+.foot-in{max-width:var(--max);margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.foot-logo{font-family:'Epilogue',sans-serif;font-weight:900;font-size:1rem;color:var(--bk);text-decoration:none;letter-spacing:-.02em;}
+.foot-logo span{color:var(--or);}
+.foot-txt{font-size:.8rem;color:var(--gy);}
 
 /* ── REVEAL ── */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s, transform 0.65s; }
-.reveal.visible { opacity: 1; transform: none; }
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s,transform .7s;}
+.rv.on{opacity:1;transform:none;}
+.rv2{opacity:0;transform:translateY(32px);transition:opacity .7s .15s,transform .7s .15s;}
+.rv2.on{opacity:1;transform:none;}
 
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .nav-inner, .hero { padding-left: 24px; padding-right: 24px; }
-  .hero-top { grid-template-columns: 1fr; gap: 40px; }
-  .numbers-bar { grid-template-columns: 1fr 1fr; }
-  .section { padding: 72px 24px; }
-  .how-grid { grid-template-columns: 1fr; }
-  .how-card-full-inner { grid-template-columns: 1fr; gap: 20px; }
-  .marketing-grid { grid-template-columns: 1fr; }
-  .marketing-inner { padding: 72px 24px; }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-inner { padding: 24px; flex-direction: column; align-items: flex-start; }
-  .container { padding: 0 24px; }
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .nav-in,.hero{padding-left:24px;padding-right:24px;}
+  .hero-top{grid-template-columns:1fr;gap:40px;}
+  .stats-bar{grid-template-columns:1fr 1fr;}
+  .sec{padding:72px 24px;}
+  .how-grid{grid-template-columns:1fr;}
+  .how-full-in{grid-template-columns:1fr;gap:20px;}
+  .pricing-in,.mkt-in,.testi-head,.contact-in,.foot-in{padding-left:24px;padding-right:24px;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .mkt-grid{grid-template-columns:1fr;}
+  .contact-in{grid-template-columns:1fr;gap:48px;padding-top:72px;padding-bottom:72px;}
+  .frow{grid-template-columns:1fr;}
+  .pricing-in,.mkt-in{padding-top:72px;padding-bottom:72px;}
+  .testi-wrap{padding:72px 0;}
 }
 </style>
 </head>
@@ -349,331 +224,510 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a class="nav-logo" href="#"><span>Ship</span>Caminho</a>
+  <div class="nav-in">
+    <a class="logo" href="#"><span>Ship</span>Caminho</a>
     <ul class="nav-links">
-      <li><a href="#como-funciona" data-i18n="nav_how">Como funciona</a></li>
-      <li><a href="#marketing" data-i18n="nav_mkt">Marketing</a></li>
-      <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
+      <li><a href="#como-funciona" data-i="nav_how">Como funciona</a></li>
+      <li><a href="#precos" data-i="nav_price">Preços</a></li>
+      <li><a href="#marketing" data-i="nav_mkt">Marketing</a></li>
+      <li><a href="#contato" data-i="nav_contact">Contato</a></li>
     </ul>
-    <div class="nav-right">
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
-        <button class="lang-btn" onclick="setLang('es')">ES</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <div class="nav-r">
+      <div class="lang-sw">
+        <button class="lb active" onclick="setLang('pt')">PT</button>
+        <button class="lb" onclick="setLang('es')">ES</button>
+        <button class="lb" onclick="setLang('en')">EN</button>
       </div>
-      <a href="#contato" class="nav-cta" data-i18n="nav_cta">Falar conosco</a>
+      <a href="#contato" class="nav-cta" data-i="nav_cta">Falar conosco</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-top">
-    <div class="reveal">
-      <div class="hero-tag">
-        <span class="hero-tag-line"></span>
-        <span data-i18n="hero_tag">3PL especializado para marcas brasileiras</span>
-      </div>
-      <h1 data-i18n="hero_h1">Seus clientes nos EUA merecem receber o produto <em>em 2 dias.</em></h1>
-      <p class="hero-body" data-i18n="hero_body">Você passou meses construindo uma marca incrível. Não deixe o frete internacional matar a venda. A ShipCaminho armazena seu produto em Utah e cuida de todo o fulfillment nos EUA — do armazém até a porta do cliente.</p>
-      <div class="hero-actions">
-        <a href="#contato" class="btn-primary" data-i18n="hero_cta1">Quero começar</a>
-        <a href="#como-funciona" class="btn-outline" data-i18n="hero_cta2">Ver como funciona</a>
-      </div>
-    </div>
-    <div class="reveal" style="transition-delay:0.12s">
-      <div class="hero-stat-block">
-        <div class="hero-stat-icon">📦</div>
-        <div>
-          <div class="hero-stat-title" data-i18n="s1t">Armazém em Utah</div>
-          <div class="hero-stat-text" data-i18n="s1b">Localização central nos EUA. Alcance todas as 50 capitais com frete terrestre de 2 a 3 dias úteis.</div>
-        </div>
-      </div>
-      <div class="hero-stat-block">
-        <div class="hero-stat-icon">🚚</div>
-        <div>
-          <div class="hero-stat-title" data-i18n="s2t">UPS · FedEx · USPS</div>
-          <div class="hero-stat-text" data-i18n="s2b">Despachamos pelo melhor carrier para cada pedido. Rastreamento em tempo real para você e seu cliente.</div>
-        </div>
-      </div>
-      <div class="hero-stat-block">
-        <div class="hero-stat-icon">🔗</div>
-        <div>
-          <div class="hero-stat-title" data-i18n="s3t">Integração com sua loja</div>
-          <div class="hero-stat-text" data-i18n="s3b">Conectamos com Shopify, WooCommerce e outros. Pedidos entram automaticamente no nosso sistema.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Numbers -->
-  <div class="numbers-bar reveal">
-    <div class="number-item">
-      <div class="number-val">2–3</div>
-      <div class="number-label" data-i18n="n1">dias para entrega em qualquer estado americano</div>
-    </div>
-    <div class="number-item">
-      <div class="number-val">50</div>
-      <div class="number-label" data-i18n="n2">estados atendidos via UPS, FedEx e USPS</div>
-    </div>
-    <div class="number-item">
-      <div class="number-val">0</div>
-      <div class="number-label" data-i18n="n3">pacotes perdidos na alfândega. É você quem envia o lote, nós cuidamos do resto</div>
+<!-- TICKER -->
+<div style="margin-top:66px;">
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <span class="ticker-item"><span class="ticker-dot"></span>Armazenamento em Utah</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Entrega em 2–3 dias</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>UPS · FedEx · USPS</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Integração Shopify</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Rastreamento em tempo real</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>50 estados americanos</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Sem pacote perdido</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Fulfillment para marcas brasileiras</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Armazenamento em Utah</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Entrega em 2–3 dias</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>UPS · FedEx · USPS</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Integração Shopify</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Rastreamento em tempo real</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>50 estados americanos</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Sem pacote perdido</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Fulfillment para marcas brasileiras</span>
     </div>
   </div>
 </div>
 
-<hr class="section-rule"/>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="rv">
+      <div class="hero-eyebrow" data-i="hero_ey">3PL especializado para marcas brasileiras</div>
+      <h1 data-i="hero_h1">Seus clientes nos EUA merecem receber <em>em 2 dias.</em></h1>
+      <p class="hero-body" data-i="hero_body">Você construiu uma marca incrível. Não deixe o frete internacional matar a venda. A ShipCaminho armazena seu produto em Utah e cuida de todo o fulfillment nos EUA — do armazém até a porta do cliente.</p>
+      <div class="hero-btns">
+        <a href="#contato" class="btn-p" data-i="hero_c1">Quero começar</a>
+        <a href="#como-funciona" class="btn-o" data-i="hero_c2">Ver como funciona</a>
+      </div>
+    </div>
+    <div class="rv2">
+      <div class="hero-cards">
+        <div class="hcard">
+          <div class="hcard-icon">📦</div>
+          <div><div class="hcard-t" data-i="h1t">Armazém em Utah</div><div class="hcard-b" data-i="h1b">Localização central nos EUA. 50 estados em 2–3 dias úteis por frete terrestre.</div></div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-icon">🚚</div>
+          <div><div class="hcard-t" data-i="h2t">UPS · FedEx · USPS</div><div class="hcard-b" data-i="h2b">Despachamos pelo melhor carrier. Rastreamento em tempo real para você e seu cliente.</div></div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-icon">🔗</div>
+          <div><div class="hcard-t" data-i="h3t">Integração com sua loja</div><div class="hcard-b" data-i="h3b">Shopify, WooCommerce e outros. Pedidos entram automaticamente no sistema.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stats-bar rv">
+    <div class="stat"><div class="stat-n">2–3</div><div class="stat-l" data-i="s1">dias para entrega em qualquer estado americano</div></div>
+    <div class="stat"><div class="stat-n">50</div><div class="stat-l" data-i="s2">estados atendidos via UPS, FedEx e USPS</div></div>
+    <div class="stat"><div class="stat-n">0</div><div class="stat-l" data-i="s3">pacotes perdidos na alfândega — você envia o lote, nós cuidamos do resto</div></div>
+  </div>
+</div>
+
+<hr class="rule"/>
 
 <!-- HOW IT WORKS -->
 <section id="como-funciona">
-  <div class="section reveal">
-    <div class="section-tag" data-i18n="how_tag">Como funciona</div>
-    <h2 data-i18n="how_h2">Do seu galpão no Brasil até a porta do cliente americano</h2>
-    <p class="section-intro" data-i18n="how_intro">A ShipCaminho é um 3PL — third-party logistics. Isso significa que somos o intermediário entre a sua marca e o seu cliente nos EUA. Você faz o produto. O cliente compra. A gente cuida de tudo no meio.</p>
-
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-card-num" data-i18n="step1_tag">Etapa 01 — Envio em volume</div>
-        <h3 data-i18n="step1_h">Você envia um lote para nós</h3>
-        <p data-i18n="step1_p">Sua responsabilidade termina quando o produto chega no nosso armazém em Utah. Como chega até nós é por conta da sua empresa — a maioria das marcas usa um freight forwarder no país de origem, que cuida da documentação e do frete marítimo ou aéreo até os EUA.</p>
-        <ul>
-          <li data-i18n="step1_l1">Frete marítimo: mais barato, 20–40 dias de trânsito</li>
-          <li data-i18n="step1_l2">Frete aéreo: mais rápido, ideal para reposições urgentes</li>
-          <li data-i18n="step1_l3">A maioria das marcas envia estoque de 2 a 3 meses de uma vez</li>
-        </ul>
-        <div class="how-note" data-i18n="step1_note">Nossa responsabilidade começa no momento em que recebemos o produto. A partir daí, cuidamos de tudo.</div>
-      </div>
-      <div class="how-card">
-        <div class="how-card-num" data-i18n="step2_tag">Etapa 02 — Armazenamento</div>
-        <h3 data-i18n="step2_h">Seu estoque organizado e seguro</h3>
-        <p data-i18n="step2_p">Quando o lote chega, recebemos, conferimos e catalogamos cada unidade. Seu estoque fica armazenado no nosso centro em Utah, pronto para ser despachado assim que um pedido entrar.</p>
-        <ul>
-          <li data-i18n="step2_l1">Você acessa um dashboard com visibilidade total do seu inventário</li>
-          <li data-i18n="step2_l2">Alertas automáticos quando o estoque está baixo</li>
-          <li data-i18n="step2_l3">Integração direta com sua loja online</li>
-        </ul>
-      </div>
+<div class="sec rv">
+  <div class="eyebrow" data-i="how_ey">Como funciona</div>
+  <h2 data-i="how_h">Do seu galpão no Brasil até a porta do cliente americano</h2>
+  <p class="intro" data-i="how_in">A ShipCaminho é um 3PL — third-party logistics. Somos o intermediário entre sua marca e seu cliente nos EUA. Você faz o produto. O cliente compra. A gente cuida de tudo no meio.</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num" data-i="st1n">Etapa 01 — Envio em volume</div>
+      <h3 data-i="st1h">Você envia um lote para nós</h3>
+      <p data-i="st1p">Sua responsabilidade termina quando o produto chega no nosso armazém. A maioria das marcas usa um freight forwarder no país de origem que cuida do frete marítimo ou aéreo até os EUA.</p>
+      <ul>
+        <li data-i="st1l1">Frete marítimo: mais barato, 20–40 dias</li>
+        <li data-i="st1l2">Frete aéreo: mais rápido, ideal para reposições urgentes</li>
+        <li data-i="st1l3">A maioria envia estoque de 2 a 3 meses de uma vez</li>
+      </ul>
+      <div class="how-note" data-i="st1n2">Nossa responsabilidade começa quando recebemos o produto. A partir daí, cuidamos de tudo.</div>
     </div>
-
-    <div class="how-card-full how-card" style="margin-top:2px">
-      <div class="how-card-num" data-i18n="step3_tag">Etapa 03 — Fulfillment</div>
-      <div class="how-card-full-inner">
-        <div>
-          <h3 data-i18n="step3_h">Pedido feito. A gente embala e envia.</h3>
-          <p data-i18n="step3_p">Quando um cliente faz um pedido na sua loja, o sistema envia automaticamente para nós. Separamos o produto, embalamos com cuidado e despachamos pelo melhor carrier disponível. O cliente recebe em 2 a 3 dias úteis com rastreamento completo.</p>
-        </div>
-        <div>
-          <ul style="margin-top:0">
-            <li data-i18n="step3_l1">Rastreamento em tempo real via UPS, FedEx ou USPS</li>
-            <li data-i18n="step3_l2">Você e o cliente recebem o código de rastreio automaticamente</li>
-            <li data-i18n="step3_l3">Embalagem profissional em cada pedido</li>
-            <li data-i18n="step3_l4">Gestão de devoluções incluída</li>
-            <li data-i18n="step3_l5">Relatórios mensais de volume e performance</li>
-          </ul>
-        </div>
-      </div>
+    <div class="how-card">
+      <div class="how-num" data-i="st2n">Etapa 02 — Armazenamento</div>
+      <h3 data-i="st2h">Seu estoque organizado e seguro</h3>
+      <p data-i="st2p">Quando o lote chega, recebemos, conferimos e catalogamos cada unidade. Seu estoque fica no nosso centro em Utah, pronto para ser despachado assim que um pedido entrar.</p>
+      <ul>
+        <li data-i="st2l1">Dashboard com visibilidade total do seu inventário</li>
+        <li data-i="st2l2">Alertas automáticos quando o estoque está baixo</li>
+        <li data-i="st2l3">Integração direta com sua loja online</li>
+      </ul>
     </div>
   </div>
+  <div class="how-full" style="margin-top:2px;">
+    <div class="how-num" data-i="st3n">Etapa 03 — Fulfillment</div>
+    <div class="how-full-in">
+      <div>
+        <h3 data-i="st3h">Pedido feito. A gente embala e envia.</h3>
+        <p data-i="st3p">Quando um cliente faz um pedido na sua loja, o sistema envia automaticamente para nós. Separamos, embalamos e despachamos. O cliente recebe em 2 a 3 dias úteis com rastreamento completo.</p>
+      </div>
+      <ul style="margin-top:0;align-self:center;">
+        <li data-i="st3l1">Rastreamento em tempo real via UPS, FedEx ou USPS</li>
+        <li data-i="st3l2">Código de rastreio enviado automaticamente para o cliente</li>
+        <li data-i="st3l3">Embalagem profissional em cada pedido</li>
+        <li data-i="st3l4">Gestão de devoluções incluída</li>
+        <li data-i="st3l5">Relatórios mensais de volume e performance</li>
+      </ul>
+    </div>
+  </div>
+</div>
 </section>
 
-<hr class="section-rule"/>
+<hr class="rule"/>
+
+<!-- PRICING -->
+<section id="precos">
+<div class="pricing-wrap">
+<div class="pricing-in rv">
+  <div class="eyebrow" data-i="pr_ey">Preços</div>
+  <h2 data-i="pr_h">Simples e transparente.</h2>
+  <p class="intro" data-i="pr_in">Sem taxas escondidas. Você paga uma mensalidade pelo armazenamento e um valor por pedido enviado. Quanto mais volume, menor o custo por pedido.</p>
+
+  <!-- Calculator -->
+  <div class="calc-card">
+    <div class="calc-label" data-i="calc_l">Quantos pedidos você envia por mês?</div>
+    <div class="calc-input-row">
+      <input class="calc-input" type="number" id="orderInput" value="100" min="0" oninput="updatePricing()"/>
+      <span class="calc-unit" data-i="calc_u">pedidos / mês</span>
+    </div>
+    <div class="calc-bands-label" data-i="calc_bl">OU ESCOLHA UMA FAIXA</div>
+    <div class="calc-bands">
+      <button class="band-btn" onclick="setBand(50,'0–50')">0–50</button>
+      <button class="band-btn active" onclick="setBand(100,'51–200')">51–200</button>
+      <button class="band-btn" onclick="setBand(300,'201–500')">201–500</button>
+      <button class="band-btn" onclick="setBand(750,'501–1.000')">501–1.000</button>
+      <button class="band-btn" onclick="setBand(1500,'1.001–2.000')">1.001–2.000</button>
+      <button class="band-btn" onclick="setBand(2500,'2.000+')">2.000+</button>
+    </div>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pc">
+      <div class="pc-tag" data-i="pc1tag">Para começar</div>
+      <div class="pc-plan">Starter</div>
+      <div class="pc-price" id="p1price">$299</div>
+      <div class="pc-per-order" id="p1order">+ $3,00 por pedido</div>
+      <div class="pc-period" data-i="pc_mo">por mês</div>
+      <div class="pc-div"></div>
+      <ul class="pc-features">
+        <li class="pc-feat" data-i="pf1_1">Até 500 unidades armazenadas</li>
+        <li class="pc-feat" data-i="pf1_2">Pedidos ilimitados</li>
+        <li class="pc-feat" data-i="pf1_3">Frete ao custo real</li>
+        <li class="pc-feat" data-i="pf1_4">Dashboard de inventário</li>
+      </ul>
+      <a href="#contato" class="pc-btn pc-btn-out" data-i="pc_start">Começar</a>
+    </div>
+    <div class="pc featured">
+      <div class="pc-tag" data-i="pc2tag">Mais popular</div>
+      <div class="pc-plan">Growth</div>
+      <div class="pc-price" id="p2price">$599</div>
+      <div class="pc-per-order" id="p2order">+ $2,50 por pedido</div>
+      <div class="pc-period" data-i="pc_mo">por mês</div>
+      <div class="pc-div"></div>
+      <ul class="pc-features">
+        <li class="pc-feat" data-i="pf2_1">Até 2.000 unidades armazenadas</li>
+        <li class="pc-feat" data-i="pf2_2">Pedidos ilimitados</li>
+        <li class="pc-feat" data-i="pf2_3">Frete ao custo real</li>
+        <li class="pc-feat" data-i="pf2_4">Integração Shopify / WooCommerce</li>
+        <li class="pc-feat" data-i="pf2_5">Suporte prioritário</li>
+      </ul>
+      <a href="#contato" class="pc-btn pc-btn-solid" data-i="pc_pick">Escolher Growth</a>
+    </div>
+    <div class="pc">
+      <div class="pc-tag" data-i="pc3tag">Alto volume</div>
+      <div class="pc-plan">Scale</div>
+      <div class="pc-price" id="p3price">$1.199</div>
+      <div class="pc-per-order" id="p3order">+ $2,00 por pedido</div>
+      <div class="pc-period" data-i="pc_mo">por mês</div>
+      <div class="pc-div"></div>
+      <ul class="pc-features">
+        <li class="pc-feat" data-i="pf3_1">Até 6.000 unidades armazenadas</li>
+        <li class="pc-feat" data-i="pf3_2">Pedidos ilimitados</li>
+        <li class="pc-feat" data-i="pf3_3">Frete ao custo real</li>
+        <li class="pc-feat" data-i="pf3_4">Gerente de conta dedicado</li>
+        <li class="pc-feat" data-i="pf3_5">Relatórios avançados</li>
+      </ul>
+      <a href="#contato" class="pc-btn pc-btn-out" data-i="pc_start">Começar</a>
+    </div>
+  </div>
+  <div class="pricing-note" data-i="pr_note"><strong>Nota:</strong> frete é cobrado ao custo real do carrier — sem markup. Você sempre sabe exatamente o que está pagando.</div>
+</div>
+</div>
+</section>
 
 <!-- MARKETING -->
 <section id="marketing">
-  <div class="marketing-wrap">
-    <div class="marketing-inner reveal">
-      <div class="section-tag" data-i18n="mkt_tag">Serviço adicional</div>
-      <h2 data-i18n="mkt_h2">Fulfillment é o começo. Marketing é o que faz vender.</h2>
-      <p class="section-intro" data-i18n="mkt_intro">A ShipCaminho garante que o produto chega rápido. Mas alguém precisa trazer o cliente até a sua loja. Se você precisar de ajuda com isso, oferecemos serviços de marketing digital como adicional — com precificação separada.</p>
-      <div class="marketing-grid">
-        <div class="mkt-card">
-          <div class="mkt-card-icon">📱</div>
-          <h3 data-i18n="mkt1_h">Anúncios no Meta</h3>
-          <p data-i18n="mkt1_p">Criamos e gerenciamos campanhas no Facebook e Instagram segmentadas para o público americano certo para o seu produto. Tráfego pago que converte.</p>
-        </div>
-        <div class="mkt-card">
-          <div class="mkt-card-icon">🎯</div>
-          <h3 data-i18n="mkt2_h">Estratégia para o mercado americano</h3>
-          <p data-i18n="mkt2_p">Entendemos o consumidor americano. Ajudamos a posicionar sua marca, definir preço de venda e criar uma proposta que ressoa com o público dos EUA.</p>
-        </div>
-        <div class="mkt-card">
-          <div class="mkt-card-icon">📈</div>
-          <h3 data-i18n="mkt3_h">Crescimento e escala</h3>
-          <p data-i18n="mkt3_p">À medida que as vendas crescem, escalamos o investimento em mídia junto com você. Análise de dados, testes A/B e otimização contínua de campanhas.</p>
-        </div>
-      </div>
-      <div class="mkt-note" data-i18n="mkt_note"><strong>Importante:</strong> marketing é um serviço separado e opcional. O fulfillment funciona independentemente — você pode ter sua própria estratégia de marketing e usar a ShipCaminho só para armazenar e entregar. Se quiser nosso apoio no marketing também, entre em contato para uma proposta personalizada.</div>
+<div class="mkt-wrap">
+<div class="mkt-in rv">
+  <div class="eyebrow" data-i="mkt_ey">Serviço adicional</div>
+  <h2 data-i="mkt_h">Fulfillment é o começo. Marketing é o que faz vender.</h2>
+  <p class="intro" data-i="mkt_in">A ShipCaminho garante entrega rápida. Mas alguém precisa trazer o cliente até a sua loja. Oferecemos marketing digital como serviço adicional e opcional.</p>
+  <div class="mkt-grid">
+    <div class="mcard"><div class="mcard-icon">📱</div><h3 data-i="mk1h">Anúncios no Meta</h3><p data-i="mk1p">Campanhas no Facebook e Instagram segmentadas para o público americano certo para o seu produto. Tráfego pago que converte.</p></div>
+    <div class="mcard"><div class="mcard-icon">🎯</div><h3 data-i="mk2h">Estratégia para o mercado americano</h3><p data-i="mk2p">Ajudamos a posicionar sua marca, definir preço de venda e criar uma mensagem que ressoa com o consumidor americano.</p></div>
+    <div class="mcard"><div class="mcard-icon">📈</div><h3 data-i="mk3h">Crescimento e escala</h3><p data-i="mk3p">À medida que as vendas crescem, escalamos o investimento em mídia junto com você. Testes A/B e otimização contínua.</p></div>
+  </div>
+  <div class="mkt-note" data-i="mkt_note"><strong>Importante:</strong> marketing é separado e opcional. O fulfillment funciona independentemente. Se quiser nosso apoio em marketing também, entre em contato para uma proposta personalizada.</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="testi-wrap rv">
+  <div class="testi-head">
+    <div class="eyebrow" data-i="t_ey">O que dizem as marcas</div>
+    <h2 style="color:var(--wh);" data-i="t_h">Marcas que abriram o mercado americano.</h2>
+  </div>
+  <div class="testi-track-wrap">
+    <div class="testi-track">
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc1q">Tentamos vender nos EUA por dois anos sem conseguir. Com a ShipCaminho, nosso primeiro cliente americano recebeu o pedido em 2 dias. Foi um divisor de águas.</p><div class="tcard-author" data-i="tc1a">Ana Carvalho</div><div class="tcard-role" data-i="tc1r">Fundadora · Marca de cosméticos, SP</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc2q">O frete sempre foi nosso maior obstáculo. Agora mandamos um lote a cada dois meses e o resto é automático. Nossas vendas nos EUA cresceram 3x em 4 meses.</p><div class="tcard-author" data-i="tc2a">Carlos Mendez</div><div class="tcard-role" data-i="tc2r">CEO · Marca de roupas, Medellín</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc3q">A simplicidade do modelo me surpreendeu. Enviei o estoque, integrei com o Shopify e já no dia seguinte os pedidos estavam sendo processados automaticamente.</p><div class="tcard-author" data-i="tc3a">Mariana Silva</div><div class="tcard-role" data-i="tc3r">Fundadora · Acessórios femininos, RJ</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc4q">Finalmente conseguimos competir com marcas americanas em tempo de entrega. Nosso cliente não sabe que o produto veio do Brasil — ele só sabe que chegou rápido.</p><div class="tcard-author" data-i="tc4a">Diego Ramírez</div><div class="tcard-role" data-i="tc4r">Co-fundador · Marca de skincare, CDMX</div></div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc1q">Tentamos vender nos EUA por dois anos sem conseguir. Com a ShipCaminho, nosso primeiro cliente americano recebeu o pedido em 2 dias. Foi um divisor de águas.</p><div class="tcard-author" data-i="tc1a">Ana Carvalho</div><div class="tcard-role" data-i="tc1r">Fundadora · Marca de cosméticos, SP</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc2q">O frete sempre foi nosso maior obstáculo. Agora mandamos um lote a cada dois meses e o resto é automático. Nossas vendas nos EUA cresceram 3x em 4 meses.</p><div class="tcard-author" data-i="tc2a">Carlos Mendez</div><div class="tcard-role" data-i="tc2r">CEO · Marca de roupas, Medellín</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc3q">A simplicidade do modelo me surpreendeu. Enviei o estoque, integrei com o Shopify e já no dia seguinte os pedidos estavam sendo processados automaticamente.</p><div class="tcard-author" data-i="tc3a">Mariana Silva</div><div class="tcard-role" data-i="tc3r">Fundadora · Acessórios femininos, RJ</div></div>
+      <div class="tcard"><div class="tcard-or">"</div><p class="tcard-quote" data-i="tc4q">Finalmente conseguimos competir com marcas americanas em tempo de entrega. Nosso cliente não sabe que o produto veio do Brasil — ele só sabe que chegou rápido.</p><div class="tcard-author" data-i="tc4a">Diego Ramírez</div><div class="tcard-role" data-i="tc4r">Co-fundador · Marca de skincare, CDMX</div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
 <section id="contato">
-  <div class="contact-wrap">
-    <div class="contact-inner">
-      <div class="reveal">
-        <div class="section-tag" data-i18n="contact_tag">Contato</div>
-        <h2 data-i18n="contact_h2">Vamos conversar sobre a sua marca</h2>
-        <p class="contact-body" data-i18n="contact_body">Tem um produto e quer vender nos EUA? Manda uma mensagem. A gente explica como funciona, faz uma proposta personalizada e te ajuda a entender se faz sentido para o seu negócio — sem compromisso.</p>
-        <a href="https://wa.me/15551234567" target="_blank" class="whatsapp-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-i18n="whatsapp_cta">Falar no WhatsApp</span>
-        </a>
-        <p class="contact-note" data-i18n="contact_note">Respondemos em até 24 horas.</p>
-      </div>
-      <div class="reveal" style="transition-delay:0.12s">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <input class="form-input" type="text" data-ph="ph_name" placeholder="Seu nome" required/>
-            <input class="form-input" type="text" data-ph="ph_company" placeholder="Empresa" required/>
-          </div>
-          <input class="form-input" type="email" data-ph="ph_email" placeholder="E-mail" required/>
-          <input class="form-input" type="text" data-ph="ph_country" placeholder="País de origem do produto"/>
-          <input class="form-input" type="text" data-ph="ph_product" placeholder="Tipo de produto"/>
-          <textarea class="form-input" data-ph="ph_message" placeholder="Conte um pouco sobre seu negócio e seus objetivos nos EUA..."></textarea>
-          <button type="submit" class="form-submit" data-i18n="form_submit">Enviar mensagem</button>
-        </form>
-      </div>
-    </div>
+<div class="contact-wrap">
+<div class="contact-in">
+  <div class="rv">
+    <div class="eyebrow" data-i="c_ey">Contato</div>
+    <h2 data-i="c_h">Vamos conversar sobre a sua <span>marca.</span></h2>
+    <p class="cbody" data-i="c_b">Tem um produto e quer vender nos EUA? Manda uma mensagem. A gente explica como funciona, faz uma proposta personalizada e te ajuda a entender se faz sentido — sem compromisso.</p>
+    <a href="https://wa.me/15551234567" target="_blank" class="wa-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i="c_wa">Falar no WhatsApp</span>
+    </a>
+    <p class="cnote" data-i="c_note">Respondemos em até 24 horas.</p>
   </div>
+  <div class="rv2">
+    <form class="cform" onsubmit="handleSub(event)">
+      <div class="frow">
+        <input class="fi" type="text" data-ph="ph_name" placeholder="Seu nome" required/>
+        <input class="fi" type="text" data-ph="ph_co" placeholder="Empresa" required/>
+      </div>
+      <input class="fi" type="email" data-ph="ph_em" placeholder="E-mail" required/>
+      <input class="fi" type="text" data-ph="ph_ct" placeholder="País de origem do produto"/>
+      <input class="fi" type="text" data-ph="ph_pr" placeholder="Tipo de produto"/>
+      <textarea class="fi" data-ph="ph_msg" placeholder="Conte sobre seu negócio e seus objetivos nos EUA..."></textarea>
+      <button type="submit" class="fsub" data-i="c_sub">Enviar mensagem</button>
+    </form>
+  </div>
+</div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <a class="footer-logo" href="#"><span>Ship</span>Caminho</a>
-    <div class="footer-text" data-i18n="footer">Utah, Estados Unidos · © 2026 ShipCaminho</div>
+  <div class="foot-in">
+    <a class="foot-logo" href="#"><span>Ship</span>Caminho</a>
+    <div class="foot-txt" data-i="footer">Utah, Estados Unidos · © 2026 ShipCaminho</div>
   </div>
 </footer>
 
 <script>
-const T = {
-  pt: {
-    nav_how:"Como funciona", nav_mkt:"Marketing", nav_contact:"Contato", nav_cta:"Falar conosco",
-    hero_tag:"3PL especializado para marcas brasileiras",
-    hero_h1:'Seus clientes nos EUA merecem receber o produto <em>em 2 dias.</em>',
-    hero_body:"Você passou meses construindo uma marca incrível. Não deixe o frete internacional matar a venda. A ShipCaminho armazena seu produto em Utah e cuida de todo o fulfillment nos EUA — do armazém até a porta do cliente.",
-    hero_cta1:"Quero começar", hero_cta2:"Ver como funciona",
-    s1t:"Armazém em Utah", s1b:"Localização central nos EUA. Alcance todas as 50 capitais com frete terrestre de 2 a 3 dias úteis.",
-    s2t:"UPS · FedEx · USPS", s2b:"Despachamos pelo melhor carrier para cada pedido. Rastreamento em tempo real para você e seu cliente.",
-    s3t:"Integração com sua loja", s3b:"Conectamos com Shopify, WooCommerce e outros. Pedidos entram automaticamente no nosso sistema.",
-    n1:"dias para entrega em qualquer estado americano", n2:"estados atendidos via UPS, FedEx e USPS", n3:"pacotes perdidos na alfândega. É você quem envia o lote, nós cuidamos do resto",
-    how_tag:"Como funciona", how_h2:"Do seu galpão no Brasil até a porta do cliente americano",
-    how_intro:"A ShipCaminho é um 3PL — third-party logistics. Isso significa que somos o intermediário entre a sua marca e o seu cliente nos EUA. Você faz o produto. O cliente compra. A gente cuida de tudo no meio.",
-    step1_tag:"Etapa 01 — Envio em volume", step1_h:"Você envia um lote para nós",
-    step1_p:"Sua responsabilidade termina quando o produto chega no nosso armazém em Utah. Como chega até nós é por conta da sua empresa — a maioria das marcas usa um freight forwarder no país de origem, que cuida da documentação e do frete marítimo ou aéreo até os EUA.",
-    step1_l1:"Frete marítimo: mais barato, 20–40 dias de trânsito", step1_l2:"Frete aéreo: mais rápido, ideal para reposições urgentes", step1_l3:"A maioria das marcas envia estoque de 2 a 3 meses de uma vez",
-    step1_note:"Nossa responsabilidade começa no momento em que recebemos o produto. A partir daí, cuidamos de tudo.",
-    step2_tag:"Etapa 02 — Armazenamento", step2_h:"Seu estoque organizado e seguro",
-    step2_p:"Quando o lote chega, recebemos, conferimos e catalogamos cada unidade. Seu estoque fica armazenado no nosso centro em Utah, pronto para ser despachado assim que um pedido entrar.",
-    step2_l1:"Você acessa um dashboard com visibilidade total do seu inventário", step2_l2:"Alertas automáticos quando o estoque está baixo", step2_l3:"Integração direta com sua loja online",
-    step3_tag:"Etapa 03 — Fulfillment", step3_h:"Pedido feito. A gente embala e envia.",
-    step3_p:"Quando um cliente faz um pedido na sua loja, o sistema envia automaticamente para nós. Separamos o produto, embalamos com cuidado e despachamos pelo melhor carrier disponível. O cliente recebe em 2 a 3 dias úteis com rastreamento completo.",
-    step3_l1:"Rastreamento em tempo real via UPS, FedEx ou USPS", step3_l2:"Você e o cliente recebem o código de rastreio automaticamente", step3_l3:"Embalagem profissional em cada pedido", step3_l4:"Gestão de devoluções incluída", step3_l5:"Relatórios mensais de volume e performance",
-    mkt_tag:"Serviço adicional", mkt_h2:"Fulfillment é o começo. Marketing é o que faz vender.",
-    mkt_intro:"A ShipCaminho garante que o produto chega rápido. Mas alguém precisa trazer o cliente até a sua loja. Se você precisar de ajuda com isso, oferecemos serviços de marketing digital como adicional — com precificação separada.",
-    mkt1_h:"Anúncios no Meta", mkt1_p:"Criamos e gerenciamos campanhas no Facebook e Instagram segmentadas para o público americano certo para o seu produto. Tráfego pago que converte.",
-    mkt2_h:"Estratégia para o mercado americano", mkt2_p:"Entendemos o consumidor americano. Ajudamos a posicionar sua marca, definir preço de venda e criar uma proposta que ressoa com o público dos EUA.",
-    mkt3_h:"Crescimento e escala", mkt3_p:"À medida que as vendas crescem, escalamos o investimento em mídia junto com você. Análise de dados, testes A/B e otimização contínua de campanhas.",
-    mkt_note:"<strong>Importante:</strong> marketing é um serviço separado e opcional. O fulfillment funciona independentemente — você pode ter sua própria estratégia de marketing e usar a ShipCaminho só para armazenar e entregar. Se quiser nosso apoio no marketing também, entre em contato para uma proposta personalizada.",
-    contact_tag:"Contato", contact_h2:"Vamos conversar sobre a sua marca",
-    contact_body:"Tem um produto e quer vender nos EUA? Manda uma mensagem. A gente explica como funciona, faz uma proposta personalizada e te ajuda a entender se faz sentido para o seu negócio — sem compromisso.",
-    whatsapp_cta:"Falar no WhatsApp", contact_note:"Respondemos em até 24 horas.",
-    ph_name:"Seu nome", ph_company:"Empresa", ph_email:"E-mail", ph_country:"País de origem do produto", ph_product:"Tipo de produto", ph_message:"Conte um pouco sobre seu negócio e seus objetivos nos EUA...",
-    form_submit:"Enviar mensagem", footer:"Utah, Estados Unidos · © 2026 ShipCaminho"
+// ── PRICING CALCULATOR ──
+const tiers = [
+  {min:0,max:50,   p1:249,p2:499,p3:999, r1:3.50,r2:3.00,r3:2.50},
+  {min:51,max:200, p1:299,p2:599,p3:1199,r1:3.00,r2:2.50,r3:2.00},
+  {min:201,max:500,p1:349,p2:699,p3:1299,r1:2.75,r2:2.25,r3:1.75},
+  {min:501,max:1000,p1:399,p2:799,p3:1399,r1:2.50,r2:2.00,r3:1.50},
+  {min:1001,max:2000,p1:449,p2:899,p3:1499,r1:2.25,r2:1.75,r3:1.25},
+  {min:2001,max:99999,p1:499,p2:999,p3:1699,r1:2.00,r2:1.50,r3:1.00},
+];
+const curr = { pt:['$','pedidos / mês','por mês','+ ${r} por pedido'],
+               es:['$','pedidos / mes','por mes','+ ${r} por pedido'],
+               en:['$','orders / month','per month','+ ${r} per order'] };
+let lang='pt';
+
+function fmt(n){return n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}).replace('.',',');}
+function getTier(v){return tiers.find(t=>v>=t.min&&v<=t.max)||tiers[tiers.length-1];}
+
+function updatePricing(){
+  const v=parseInt(document.getElementById('orderInput').value)||0;
+  const t=getTier(v);
+  const c=curr[lang];
+  document.getElementById('p1price').textContent=c[0]+t.p1.toLocaleString();
+  document.getElementById('p2price').textContent=c[0]+t.p2.toLocaleString();
+  document.getElementById('p3price').textContent=c[0]+t.p3.toLocaleString();
+  document.getElementById('p1order').textContent=c[3].replace('{r}',fmt(t.r1));
+  document.getElementById('p2order').textContent=c[3].replace('{r}',fmt(t.r2));
+  document.getElementById('p3order').textContent=c[3].replace('{r}',fmt(t.r3));
+  document.querySelectorAll('[data-i="calc_u"]').forEach(el=>el.textContent=c[1]);
+}
+
+function setBand(v,_){
+  document.getElementById('orderInput').value=v;
+  document.querySelectorAll('.band-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  updatePricing();
+}
+
+// ── TRANSLATIONS ──
+const T={
+  pt:{
+    nav_how:'Como funciona',nav_price:'Preços',nav_mkt:'Marketing',nav_contact:'Contato',nav_cta:'Falar conosco',
+    hero_ey:'3PL especializado para marcas brasileiras',
+    hero_h1:'Seus clientes nos EUA merecem receber <em>em 2 dias.</em>',
+    hero_body:'Você construiu uma marca incrível. Não deixe o frete internacional matar a venda. A ShipCaminho armazena seu produto em Utah e cuida de todo o fulfillment nos EUA — do armazém até a porta do cliente.',
+    hero_c1:'Quero começar',hero_c2:'Ver como funciona',
+    h1t:'Armazém em Utah',h1b:'Localização central nos EUA. 50 estados em 2–3 dias por frete terrestre.',
+    h2t:'UPS · FedEx · USPS',h2b:'Despachamos pelo melhor carrier. Rastreamento em tempo real.',
+    h3t:'Integração com sua loja',h3b:'Shopify, WooCommerce e outros. Pedidos automáticos.',
+    s1:'dias para entrega em qualquer estado americano',s2:'estados atendidos via UPS, FedEx e USPS',s3:'pacotes perdidos na alfândega — você envia o lote, nós cuidamos do resto',
+    how_ey:'Como funciona',how_h:'Do seu galpão no Brasil até a porta do cliente americano',
+    how_in:'A ShipCaminho é um 3PL — third-party logistics. Somos o intermediário entre sua marca e seu cliente nos EUA. Você faz o produto. O cliente compra. A gente cuida de tudo no meio.',
+    st1n:'Etapa 01 — Envio em volume',st1h:'Você envia um lote para nós',
+    st1p:'Sua responsabilidade termina quando o produto chega no nosso armazém. A maioria usa um freight forwarder no país de origem que cuida do frete marítimo ou aéreo até os EUA.',
+    st1l1:'Frete marítimo: mais barato, 20–40 dias',st1l2:'Frete aéreo: mais rápido, ideal para reposições urgentes',st1l3:'A maioria envia estoque de 2 a 3 meses de uma vez',
+    st1n2:'Nossa responsabilidade começa quando recebemos o produto. A partir daí, cuidamos de tudo.',
+    st2n:'Etapa 02 — Armazenamento',st2h:'Seu estoque organizado e seguro',
+    st2p:'Quando o lote chega, recebemos, conferimos e catalogamos cada unidade. Seu estoque fica pronto para ser despachado assim que um pedido entrar.',
+    st2l1:'Dashboard com visibilidade total do inventário',st2l2:'Alertas automáticos quando o estoque está baixo',st2l3:'Integração direta com sua loja online',
+    st3n:'Etapa 03 — Fulfillment',st3h:'Pedido feito. A gente embala e envia.',
+    st3p:'Quando um cliente faz um pedido, o sistema envia automaticamente para nós. Separamos, embalamos e despachamos. O cliente recebe em 2 a 3 dias com rastreamento completo.',
+    st3l1:'Rastreamento via UPS, FedEx ou USPS',st3l2:'Código de rastreio enviado automaticamente',st3l3:'Embalagem profissional em cada pedido',st3l4:'Gestão de devoluções incluída',st3l5:'Relatórios mensais de performance',
+    pr_ey:'Preços',pr_h:'Simples e transparente.',pr_in:'Sem taxas escondidas. Você paga uma mensalidade pelo armazenamento e um valor por pedido. Quanto mais volume, menor o custo por pedido.',
+    calc_l:'Quantos pedidos você envia por mês?',calc_u:'pedidos / mês',calc_bl:'OU ESCOLHA UMA FAIXA',
+    pc1tag:'Para começar',pc2tag:'Mais popular',pc3tag:'Alto volume',pc_mo:'por mês',
+    pf1_1:'Até 500 unidades armazenadas',pf1_2:'Pedidos ilimitados',pf1_3:'Frete ao custo real',pf1_4:'Dashboard de inventário',
+    pf2_1:'Até 2.000 unidades armazenadas',pf2_2:'Pedidos ilimitados',pf2_3:'Frete ao custo real',pf2_4:'Integração Shopify / WooCommerce',pf2_5:'Suporte prioritário',
+    pf3_1:'Até 6.000 unidades armazenadas',pf3_2:'Pedidos ilimitados',pf3_3:'Frete ao custo real',pf3_4:'Gerente de conta dedicado',pf3_5:'Relatórios avançados',
+    pc_start:'Começar',pc_pick:'Escolher Growth',
+    pr_note:'<strong>Nota:</strong> frete é cobrado ao custo real do carrier — sem markup. Você sempre sabe o que está pagando.',
+    mkt_ey:'Serviço adicional',mkt_h:'Fulfillment é o começo. Marketing é o que faz vender.',
+    mkt_in:'A ShipCaminho garante entrega rápida. Mas alguém precisa trazer o cliente até sua loja. Oferecemos marketing digital como serviço adicional e opcional.',
+    mk1h:'Anúncios no Meta',mk1p:'Campanhas no Facebook e Instagram para o público americano certo. Tráfego pago que converte.',
+    mk2h:'Estratégia para o mercado americano',mk2p:'Ajudamos a posicionar sua marca e criar uma mensagem que ressoa com o consumidor americano.',
+    mk3h:'Crescimento e escala',mk3p:'Escalamos o investimento em mídia junto com você. Testes A/B e otimização contínua.',
+    mkt_note:'<strong>Importante:</strong> marketing é separado e opcional. O fulfillment funciona independentemente.',
+    t_ey:'O que dizem as marcas',t_h:'Marcas que abriram o mercado americano.',
+    tc1q:'Tentamos vender nos EUA por dois anos sem conseguir. Com a ShipCaminho, nosso primeiro cliente americano recebeu o pedido em 2 dias. Foi um divisor de águas.',tc1a:'Ana Carvalho',tc1r:'Fundadora · Marca de cosméticos, SP',
+    tc2q:'O frete sempre foi nosso maior obstáculo. Agora mandamos um lote a cada dois meses e o resto é automático. Nossas vendas nos EUA cresceram 3x em 4 meses.',tc2a:'Carlos Mendez',tc2r:'CEO · Marca de roupas, Medellín',
+    tc3q:'A simplicidade do modelo me surpreendeu. Enviei o estoque, integrei com o Shopify e já no dia seguinte os pedidos estavam sendo processados automaticamente.',tc3a:'Mariana Silva',tc3r:'Fundadora · Acessórios femininos, RJ',
+    tc4q:'Finalmente conseguimos competir com marcas americanas em tempo de entrega. Nosso cliente não sabe que o produto veio do Brasil — ele só sabe que chegou rápido.',tc4a:'Diego Ramírez',tc4r:'Co-fundador · Marca de skincare, CDMX',
+    c_ey:'Contato',c_h:'Vamos conversar sobre a sua <span>marca.</span>',
+    c_b:'Tem um produto e quer vender nos EUA? Manda uma mensagem. A gente explica como funciona, faz uma proposta personalizada e te ajuda a entender se faz sentido — sem compromisso.',
+    c_wa:'Falar no WhatsApp',c_note:'Respondemos em até 24 horas.',
+    ph_name:'Seu nome',ph_co:'Empresa',ph_em:'E-mail',ph_ct:'País de origem do produto',ph_pr:'Tipo de produto',ph_msg:'Conte sobre seu negócio e seus objetivos nos EUA...',
+    c_sub:'Enviar mensagem',footer:'Utah, Estados Unidos · © 2026 ShipCaminho'
   },
-  es: {
-    nav_how:"Cómo funciona", nav_mkt:"Marketing", nav_contact:"Contacto", nav_cta:"Hablar con nosotros",
-    hero_tag:"3PL especializado para marcas latinoamericanas",
-    hero_h1:'Tus clientes en EE.UU. merecen recibir el producto <em>en 2 días.</em>',
-    hero_body:"Pasaste meses construyendo una marca increíble. No dejes que el flete internacional mate la venta. ShipCaminho almacena tu producto en Utah y se encarga de todo el fulfillment en EE.UU. — del almacén a la puerta del cliente.",
-    hero_cta1:"Quiero empezar", hero_cta2:"Ver cómo funciona",
-    s1t:"Almacén en Utah", s1b:"Ubicación central en EE.UU. Llega a los 50 estados con envío terrestre de 2 a 3 días hábiles.",
-    s2t:"UPS · FedEx · USPS", s2b:"Despachamos por el mejor carrier para cada pedido. Seguimiento en tiempo real para ti y tu cliente.",
-    s3t:"Integración con tu tienda", s3b:"Conectamos con Shopify, WooCommerce y otros. Los pedidos entran automáticamente a nuestro sistema.",
-    n1:"días de entrega a cualquier estado americano", n2:"estados atendidos vía UPS, FedEx y USPS", n3:"paquetes perdidos en aduana. Tú envías el lote, nosotros cuidamos el resto",
-    how_tag:"Cómo funciona", how_h2:"De tu bodega en Latinoamérica a la puerta del cliente americano",
-    how_intro:"ShipCaminho es un 3PL — third-party logistics. Somos el intermediario entre tu marca y tu cliente en EE.UU. Tú haces el producto. El cliente compra. Nosotros cuidamos todo lo del medio.",
-    step1_tag:"Etapa 01 — Envío en volumen", step1_h:"Tú nos envías un lote",
-    step1_p:"Tu responsabilidad termina cuando el producto llega a nuestro almacén en Utah. Cómo llega hasta nosotros es responsabilidad de tu empresa — la mayoría usa un freight forwarder en su país de origen que maneja la documentación y el flete marítimo o aéreo hasta EE.UU.",
-    step1_l1:"Flete marítimo: más barato, 20–40 días de tránsito", step1_l2:"Flete aéreo: más rápido, ideal para reposiciones urgentes", step1_l3:"La mayoría de las marcas envía stock de 2 a 3 meses de una vez",
-    step1_note:"Nuestra responsabilidad empieza en el momento en que recibimos el producto. A partir de ahí, nos encargamos de todo.",
-    step2_tag:"Etapa 02 — Almacenamiento", step2_h:"Tu inventario organizado y seguro",
-    step2_p:"Cuando el lote llega, recibimos, verificamos y catalogamos cada unidad. Tu inventario queda almacenado en nuestro centro en Utah, listo para despacharse en cuanto entre un pedido.",
-    step2_l1:"Accedes a un dashboard con visibilidad total de tu inventario", step2_l2:"Alertas automáticas cuando el stock está bajo", step2_l3:"Integración directa con tu tienda online",
-    step3_tag:"Etapa 03 — Fulfillment", step3_h:"Pedido hecho. Nosotros empacamos y enviamos.",
-    step3_p:"Cuando un cliente hace un pedido en tu tienda, el sistema nos lo envía automáticamente. Separamos el producto, empacamos con cuidado y despachamos por el mejor carrier disponible. El cliente recibe en 2 a 3 días hábiles con seguimiento completo.",
-    step3_l1:"Seguimiento en tiempo real vía UPS, FedEx o USPS", step3_l2:"Tú y el cliente reciben el código de rastreo automáticamente", step3_l3:"Empaque profesional en cada pedido", step3_l4:"Gestión de devoluciones incluida", step3_l5:"Reportes mensuales de volumen y rendimiento",
-    mkt_tag:"Servicio adicional", mkt_h2:"El fulfillment es el comienzo. El marketing es lo que hace vender.",
-    mkt_intro:"ShipCaminho garantiza que el producto llega rápido. Pero alguien tiene que traer al cliente a tu tienda. Si necesitas ayuda con eso, ofrecemos servicios de marketing digital como adicional — con precio separado.",
-    mkt1_h:"Anuncios en Meta", mkt1_p:"Creamos y gestionamos campañas en Facebook e Instagram segmentadas para el público americano correcto para tu producto. Tráfico pagado que convierte.",
-    mkt2_h:"Estrategia para el mercado americano", mkt2_p:"Entendemos al consumidor americano. Te ayudamos a posicionar tu marca, definir el precio de venta y crear una propuesta que resuene con el público de EE.UU.",
-    mkt3_h:"Crecimiento y escala", mkt3_p:"A medida que crecen las ventas, escalamos la inversión en medios junto contigo. Análisis de datos, pruebas A/B y optimización continua de campañas.",
-    mkt_note:"<strong>Importante:</strong> el marketing es un servicio separado y opcional. El fulfillment funciona de forma independiente — puedes tener tu propia estrategia de marketing y usar ShipCaminho solo para almacenar y entregar. Si quieres nuestro apoyo en marketing también, contáctanos para una propuesta personalizada.",
-    contact_tag:"Contacto", contact_h2:"Hablemos sobre tu marca",
-    contact_body:"¿Tienes un producto y quieres vender en EE.UU.? Mándanos un mensaje. Te explicamos cómo funciona, hacemos una propuesta personalizada y te ayudamos a entender si tiene sentido para tu negocio — sin compromiso.",
-    whatsapp_cta:"Hablar por WhatsApp", contact_note:"Respondemos en menos de 24 horas.",
-    ph_name:"Tu nombre", ph_company:"Empresa", ph_email:"Correo electrónico", ph_country:"País de origen del producto", ph_product:"Tipo de producto", ph_message:"Cuéntanos sobre tu negocio y tus objetivos en EE.UU....",
-    form_submit:"Enviar mensaje", footer:"Utah, Estados Unidos · © 2026 ShipCaminho"
+  es:{
+    nav_how:'Cómo funciona',nav_price:'Precios',nav_mkt:'Marketing',nav_contact:'Contacto',nav_cta:'Hablar con nosotros',
+    hero_ey:'3PL especializado para marcas latinoamericanas',
+    hero_h1:'Tus clientes en EE.UU. merecen recibir <em>en 2 días.</em>',
+    hero_body:'Construiste una marca increíble. No dejes que el flete internacional mate la venta. ShipCaminho almacena tu producto en Utah y cuida todo el fulfillment en EE.UU.',
+    hero_c1:'Quiero empezar',hero_c2:'Ver cómo funciona',
+    h1t:'Almacén en Utah',h1b:'Ubicación central en EE.UU. 50 estados en 2–3 días por envío terrestre.',
+    h2t:'UPS · FedEx · USPS',h2b:'Despachamos por el mejor carrier. Seguimiento en tiempo real.',
+    h3t:'Integración con tu tienda',h3b:'Shopify, WooCommerce y más. Pedidos automáticos.',
+    s1:'días de entrega a cualquier estado americano',s2:'estados atendidos vía UPS, FedEx y USPS',s3:'paquetes perdidos en aduana — tú envías el lote, nosotros cuidamos el resto',
+    how_ey:'Cómo funciona',how_h:'De tu bodega en Latinoamérica a la puerta del cliente americano',
+    how_in:'ShipCaminho es un 3PL — third-party logistics. Somos el intermediario entre tu marca y tu cliente en EE.UU.',
+    st1n:'Etapa 01 — Envío en volumen',st1h:'Tú nos envías un lote',
+    st1p:'Tu responsabilidad termina cuando el producto llega a nuestro almacén. La mayoría usa un freight forwarder que maneja el flete marítimo o aéreo hasta EE.UU.',
+    st1l1:'Flete marítimo: más barato, 20–40 días',st1l2:'Flete aéreo: más rápido, ideal para reposiciones',st1l3:'La mayoría envía stock de 2 a 3 meses de una vez',
+    st1n2:'Nuestra responsabilidad empieza cuando recibimos el producto. A partir de ahí, nos encargamos de todo.',
+    st2n:'Etapa 02 — Almacenamiento',st2h:'Tu inventario organizado y seguro',
+    st2p:'Cuando el lote llega, recibimos, verificamos y catalogamos cada unidad. Listo para despacharse en cuanto entre un pedido.',
+    st2l1:'Dashboard con visibilidad total del inventario',st2l2:'Alertas automáticas cuando el stock está bajo',st2l3:'Integración directa con tu tienda online',
+    st3n:'Etapa 03 — Fulfillment',st3h:'Pedido hecho. Nosotros empacamos y enviamos.',
+    st3p:'Cuando un cliente hace un pedido, el sistema nos lo envía automáticamente. Empacamos y despachamos. Recibe en 2–3 días con seguimiento completo.',
+    st3l1:'Seguimiento vía UPS, FedEx o USPS',st3l2:'Código de rastreo enviado automáticamente',st3l3:'Empaque profesional en cada pedido',st3l4:'Gestión de devoluciones incluida',st3l5:'Reportes mensuales de rendimiento',
+    pr_ey:'Precios',pr_h:'Simple y transparente.',pr_in:'Sin tarifas ocultas. Pagas una mensualidad por almacenamiento y un valor por pedido enviado.',
+    calc_l:'¿Cuántos pedidos envías por mes?',calc_u:'pedidos / mes',calc_bl:'O ELIGE UNA BANDA',
+    pc1tag:'Para empezar',pc2tag:'Más popular',pc3tag:'Alto volumen',pc_mo:'por mes',
+    pf1_1:'Hasta 500 unidades almacenadas',pf1_2:'Pedidos ilimitados',pf1_3:'Flete al costo real',pf1_4:'Dashboard de inventario',
+    pf2_1:'Hasta 2.000 unidades almacenadas',pf2_2:'Pedidos ilimitados',pf2_3:'Flete al costo real',pf2_4:'Integración Shopify / WooCommerce',pf2_5:'Soporte prioritario',
+    pf3_1:'Hasta 6.000 unidades almacenadas',pf3_2:'Pedidos ilimitados',pf3_3:'Flete al costo real',pf3_4:'Gerente de cuenta dedicado',pf3_5:'Reportes avanzados',
+    pc_start:'Empezar',pc_pick:'Elegir Growth',
+    pr_note:'<strong>Nota:</strong> el flete se cobra al costo real del carrier — sin markup.',
+    mkt_ey:'Servicio adicional',mkt_h:'El fulfillment es el comienzo. El marketing es lo que hace vender.',
+    mkt_in:'ShipCaminho garantiza entrega rápida. Pero alguien tiene que traer al cliente a tu tienda.',
+    mk1h:'Anuncios en Meta',mk1p:'Campañas en Facebook e Instagram para el público americano correcto.',
+    mk2h:'Estrategia para el mercado americano',mk2p:'Te ayudamos a posicionar tu marca para el consumidor americano.',
+    mk3h:'Crecimiento y escala',mk3p:'Escalamos la inversión en medios junto contigo. Pruebas A/B y optimización continua.',
+    mkt_note:'<strong>Importante:</strong> el marketing es separado y opcional.',
+    t_ey:'Lo que dicen las marcas',t_h:'Marcas que abrieron el mercado americano.',
+    tc1q:'Intentamos vender en EE.UU. por dos años sin lograrlo. Con ShipCaminho, nuestro primer cliente americano recibió el pedido en 2 días.',tc1a:'Ana Carvalho',tc1r:'Fundadora · Marca de cosméticos, SP',
+    tc2q:'El flete siempre fue nuestro mayor obstáculo. Ahora mandamos un lote cada dos meses y el resto es automático. Nuestras ventas en EE.UU. crecieron 3x en 4 meses.',tc2a:'Carlos Mendez',tc2r:'CEO · Marca de ropa, Medellín',
+    tc3q:'La simplicidad del modelo me sorprendió. Envié el stock, lo integré con Shopify y al día siguiente los pedidos ya se procesaban automáticamente.',tc3a:'Mariana Silva',tc3r:'Fundadora · Accesorios femeninos, RJ',
+    tc4q:'Por fin pudimos competir con marcas americanas en tiempo de entrega. Nuestro cliente no sabe que el producto vino de México — solo sabe que llegó rápido.',tc4a:'Diego Ramírez',tc4r:'Co-fundador · Marca de skincare, CDMX',
+    c_ey:'Contacto',c_h:'Hablemos sobre tu <span>marca.</span>',
+    c_b:'¿Tienes un producto y quieres vender en EE.UU.? Escríbenos. Te explicamos cómo funciona y hacemos una propuesta personalizada — sin compromiso.',
+    c_wa:'Hablar por WhatsApp',c_note:'Respondemos en menos de 24 horas.',
+    ph_name:'Tu nombre',ph_co:'Empresa',ph_em:'Correo electrónico',ph_ct:'País de origen del producto',ph_pr:'Tipo de producto',ph_msg:'Cuéntanos sobre tu negocio y tus objetivos en EE.UU....',
+    c_sub:'Enviar mensaje',footer:'Utah, Estados Unidos · © 2026 ShipCaminho'
   },
-  en: {
-    nav_how:"How it works", nav_mkt:"Marketing", nav_contact:"Contact", nav_cta:"Get in touch",
-    hero_tag:"3PL built for Latin American brands",
+  en:{
+    nav_how:'How it works',nav_price:'Pricing',nav_mkt:'Marketing',nav_contact:'Contact',nav_cta:'Get in touch',
+    hero_ey:'3PL built for Latin American brands',
     hero_h1:'Your US customers deserve to receive their order <em>in 2 days.</em>',
-    hero_body:"You spent months building an incredible brand. Don't let international shipping kill the sale. ShipCaminho stores your product in Utah and handles all US fulfillment — from our warehouse to your customer's door.",
-    hero_cta1:"Get started", hero_cta2:"See how it works",
-    s1t:"Warehouse in Utah", s1b:"Central US location. Reach all 50 states with 2–3 business day ground shipping.",
-    s2t:"UPS · FedEx · USPS", s2b:"We ship via the best carrier for each order. Real-time tracking for you and your customer.",
-    s3t:"Connects to your store", s3b:"We integrate with Shopify, WooCommerce, and more. Orders flow into our system automatically.",
-    n1:"day delivery to any US state", n2:"states covered via UPS, FedEx, and USPS", n3:"packages lost in customs. You ship the bulk order, we handle everything from there",
-    how_tag:"How it works", how_h2:"From your warehouse in Latin America to your US customer's door",
-    how_intro:"ShipCaminho is a 3PL — third-party logistics provider. That means we sit between your brand and your US customer. You make the product. The customer buys. We handle everything in between.",
-    step1_tag:"Step 01 — Bulk shipment", step1_h:"You send us a batch",
-    step1_p:"Your responsibility ends when the product arrives at our Utah warehouse. How it gets to us is on your company — most brands use a freight forwarder in their home country who handles the documentation and sea or air freight to the US.",
-    step1_l1:"Sea freight: cheaper, 20–40 days transit time", step1_l2:"Air freight: faster, ideal for urgent restocks", step1_l3:"Most brands ship 2–3 months of inventory at once",
-    step1_note:"Our responsibility starts the moment we receive your product. From there, we take care of everything.",
-    step2_tag:"Step 02 — Storage", step2_h:"Your inventory organized and secure",
-    step2_p:"When the shipment arrives, we receive, verify, and catalog every unit. Your inventory is stored at our Utah facility, ready to ship the moment an order comes in.",
-    step2_l1:"Access a dashboard with full visibility into your inventory", step2_l2:"Automatic alerts when stock is running low", step2_l3:"Direct integration with your online store",
-    step3_tag:"Step 03 — Fulfillment", step3_h:"Order placed. We pack and ship.",
-    step3_p:"When a customer places an order in your store, the system sends it to us automatically. We pick the product, pack it carefully, and dispatch it via the best available carrier. The customer receives it in 2–3 business days with full tracking.",
-    step3_l1:"Real-time tracking via UPS, FedEx, or USPS", step3_l2:"You and the customer receive the tracking number automatically", step3_l3:"Professional packaging on every order", step3_l4:"Returns management included", step3_l5:"Monthly volume and performance reports",
-    mkt_tag:"Add-on service", mkt_h2:"Fulfillment gets it there. Marketing makes it sell.",
-    mkt_intro:"ShipCaminho guarantees fast delivery. But someone needs to bring the customer to your store. If you need help with that, we offer digital marketing services as an add-on — priced separately.",
-    mkt1_h:"Meta Ads", mkt1_p:"We create and manage Facebook and Instagram campaigns targeted at the right US audience for your product. Paid traffic that actually converts.",
-    mkt2_h:"US market strategy", mkt2_p:"We understand the American consumer. We help you position your brand, set the right price point, and craft a message that resonates with the US market.",
-    mkt3_h:"Growth and scale", mkt3_p:"As sales grow, we scale media spend alongside you. Data analysis, A/B testing, and continuous campaign optimization.",
-    mkt_note:"<strong>Important:</strong> marketing is a separate, optional service. Fulfillment works independently — you can run your own marketing and use ShipCaminho purely for storage and delivery. If you want our marketing support as well, reach out for a custom proposal.",
-    contact_tag:"Contact", contact_h2:"Let's talk about your brand",
-    contact_body:"Have a product and want to sell in the US? Send us a message. We'll walk you through how it works, put together a custom proposal, and help you figure out if it makes sense for your business — no commitment.",
-    whatsapp_cta:"Message on WhatsApp", contact_note:"We respond within 24 hours.",
-    ph_name:"Your name", ph_company:"Company", ph_email:"Email", ph_country:"Country of origin", ph_product:"Product type", ph_message:"Tell us about your business and your goals in the US...",
-    form_submit:"Send message", footer:"Utah, United States · © 2026 ShipCaminho"
+    hero_body:"You built an incredible brand. Don't let international shipping kill the sale. ShipCaminho stores your product in Utah and handles all US fulfillment — from our warehouse to your customer's door.",
+    hero_c1:'Get started',hero_c2:'See how it works',
+    h1t:'Warehouse in Utah',h1b:'Central US location. All 50 states in 2–3 days via ground shipping.',
+    h2t:'UPS · FedEx · USPS',h2b:'We ship via the best carrier for each order. Real-time tracking.',
+    h3t:'Connects to your store',h3b:'Shopify, WooCommerce, and more. Orders flow in automatically.',
+    s1:'day delivery to any US state',s2:'states covered via UPS, FedEx, and USPS',s3:'packages lost in customs — you ship the bulk order, we handle everything from there',
+    how_ey:'How it works',how_h:'From your warehouse in Latin America to your US customer\'s door',
+    how_in:'ShipCaminho is a 3PL — third-party logistics provider. We sit between your brand and your US customer. You make the product. The customer buys. We handle everything in between.',
+    st1n:'Step 01 — Bulk shipment',st1h:'You send us a batch',
+    st1p:"Your responsibility ends when the product arrives at our Utah warehouse. Most brands use a freight forwarder in their home country who handles sea or air freight to the US.",
+    st1l1:'Sea freight: cheaper, 20–40 days transit',st1l2:'Air freight: faster, ideal for urgent restocks',st1l3:'Most brands ship 2–3 months of inventory at once',
+    st1n2:'Our responsibility starts the moment we receive your product. From there, we take care of everything.',
+    st2n:'Step 02 — Storage',st2h:'Your inventory organized and secure',
+    st2p:'When the shipment arrives, we receive, verify, and catalog every unit. Your inventory stays ready to ship the moment an order comes in.',
+    st2l1:'Dashboard with full inventory visibility',st2l2:'Automatic low-stock alerts',st2l3:'Direct integration with your online store',
+    st3n:'Step 03 — Fulfillment',st3h:'Order placed. We pack and ship.',
+    st3p:'When a customer places an order in your store, the system sends it to us automatically. We pick, pack, and dispatch. The customer receives in 2–3 business days with full tracking.',
+    st3l1:'Real-time tracking via UPS, FedEx, or USPS',st3l2:'Tracking number sent automatically to the customer',st3l3:'Professional packaging on every order',st3l4:'Returns management included',st3l5:'Monthly performance reports',
+    pr_ey:'Pricing',pr_h:'Simple and transparent.',pr_in:'No hidden fees. You pay a monthly base for storage and a per-order fee. The more volume, the lower the per-order cost.',
+    calc_l:'How many orders do you ship per month?',calc_u:'orders / month',calc_bl:'OR JUMP TO A BAND',
+    pc1tag:'To get started',pc2tag:'Most popular',pc3tag:'High volume',pc_mo:'per month',
+    pf1_1:'Up to 500 units stored',pf1_2:'Unlimited orders',pf1_3:'Shipping at real carrier cost',pf1_4:'Inventory dashboard',
+    pf2_1:'Up to 2,000 units stored',pf2_2:'Unlimited orders',pf2_3:'Shipping at real carrier cost',pf2_4:'Shopify / WooCommerce integration',pf2_5:'Priority support',
+    pf3_1:'Up to 6,000 units stored',pf3_2:'Unlimited orders',pf3_3:'Shipping at real carrier cost',pf3_4:'Dedicated account manager',pf3_5:'Advanced reporting',
+    pc_start:'Get started',pc_pick:'Choose Growth',
+    pr_note:'<strong>Note:</strong> shipping is billed at real carrier cost — no markup. You always know exactly what you\'re paying.',
+    mkt_ey:'Add-on service',mkt_h:'Fulfillment gets it there. Marketing makes it sell.',
+    mkt_in:"ShipCaminho guarantees fast delivery. But someone needs to bring the customer to your store. We offer digital marketing as an optional add-on.",
+    mk1h:'Meta Ads',mk1p:'Facebook and Instagram campaigns targeted at the right US audience for your product.',
+    mk2h:'US market strategy',mk2p:'We help you position your brand and craft a message that resonates with the American consumer.',
+    mk3h:'Growth and scale',mk3p:'We scale media spend alongside you. A/B testing and continuous optimization.',
+    mkt_note:'<strong>Important:</strong> marketing is a separate, optional service. Fulfillment works independently.',
+    t_ey:'What brands say',t_h:'Brands that opened the US market.',
+    tc1q:'We tried to sell in the US for two years without success. With ShipCaminho, our first American customer received the order in 2 days. It was a game changer.',tc1a:'Ana Carvalho',tc1r:'Founder · Cosmetics brand, SP',
+    tc2q:'Shipping was always our biggest obstacle. Now we send a batch every two months and the rest is automatic. Our US sales grew 3x in 4 months.',tc2a:'Carlos Mendez',tc2r:'CEO · Clothing brand, Medellín',
+    tc3q:"The simplicity of the model surprised me. I sent the inventory, integrated with Shopify, and the next day orders were already being processed automatically.",tc3a:'Mariana Silva',tc3r:"Founder · Women's accessories, RJ",
+    tc4q:"We finally compete with American brands on delivery speed. Our customer doesn't know the product came from Mexico — they just know it arrived fast.",tc4a:'Diego Ramírez',tc4r:'Co-founder · Skincare brand, CDMX',
+    c_ey:'Contact',c_h:'Let\'s talk about your <span>brand.</span>',
+    c_b:"Have a product and want to sell in the US? Send us a message. We'll walk you through how it works and put together a custom proposal — no commitment.",
+    c_wa:'Message on WhatsApp',c_note:'We respond within 24 hours.',
+    ph_name:'Your name',ph_co:'Company',ph_em:'Email',ph_ct:'Country of origin',ph_pr:'Product type',ph_msg:'Tell us about your business and your goals in the US...',
+    c_sub:'Send message',footer:'Utah, United States · © 2026 ShipCaminho'
   }
 };
 
-let lang = 'pt';
-function setLang(l) {
-  lang = l;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === l));
-  const t = T[l];
-  document.querySelectorAll('[data-i18n]').forEach(el => { if (t[el.dataset.i18n] !== undefined) el.innerHTML = t[el.dataset.i18n]; });
-  document.querySelectorAll('[data-ph]').forEach(el => { if (t[el.dataset.ph]) el.placeholder = t[el.dataset.ph]; });
-  document.documentElement.lang = l === 'pt' ? 'pt-BR' : l === 'es' ? 'es' : 'en';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));
+  const t=T[l];
+  document.querySelectorAll('[data-i]').forEach(el=>{if(t[el.dataset.i]!==undefined)el.innerHTML=t[el.dataset.i];});
+  document.querySelectorAll('[data-ph]').forEach(el=>{if(t[el.dataset.ph])el.placeholder=t[el.dataset.ph];});
+  document.documentElement.lang=l==='pt'?'pt-BR':l==='es'?'es':'en';
+  updatePricing();
+  // Update ticker
+  const tk=document.getElementById('ticker');
+  const items={
+    pt:['Armazenamento em Utah','Entrega em 2–3 dias','UPS · FedEx · USPS','Integração Shopify','Rastreamento em tempo real','50 estados americanos','Sem pacote perdido','Fulfillment para marcas brasileiras'],
+    es:['Almacenamiento en Utah','Entrega en 2–3 días','UPS · FedEx · USPS','Integración Shopify','Seguimiento en tiempo real','50 estados americanos','Sin paquetes perdidos','Fulfillment para marcas latinas'],
+    en:['Warehouse in Utah','2–3 day delivery','UPS · FedEx · USPS','Shopify integration','Real-time tracking','All 50 US states','No lost packages','Fulfillment for Latin American brands']
+  };
+  const html=items[l].map(s=>`<span class="ticker-item"><span class="ticker-dot"></span>${s}</span>`).join('');
+  tk.innerHTML=html+html;
 }
 
-const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// ── REVEAL ──
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
 
-function handleSubmit(e) {
+// ── FORM ──
+function handleSub(e){
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  const done = { pt:'Enviado ✓', es:'Enviado ✓', en:'Sent ✓' };
-  btn.textContent = done[lang]; btn.style.background = '#222';
-  setTimeout(() => { btn.textContent = T[lang].form_submit; btn.style.background = ''; e.target.reset(); }, 3000);
+  const btn=e.target.querySelector('.fsub');
+  const d={pt:'Enviado ✓',es:'Enviado ✓',en:'Sent ✓'};
+  btn.textContent=d[lang];btn.style.background='#222';
+  setTimeout(()=>{btn.textContent=T[lang].c_sub;btn.style.background='';e.target.reset();},3000);
 }
+
+updatePricing();
 </script>
 </body>
 </html>
